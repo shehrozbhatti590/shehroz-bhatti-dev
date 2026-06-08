@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-[var(--accent)] tracking-[0.18em] mb-3">
-        // ABOUT
+        {"// ABOUT"}
       </p>
       <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-12">
         About Me

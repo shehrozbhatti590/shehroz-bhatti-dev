@@ -1,27 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0f;
-  --bg2: #12121a;
-  --bg3: #1a1a26;
-  --accent: #7c6fff;
-  --accent2: #4ecdc4;
-  --text: #e8e8f0;
-  --text2: #9898b0;
-  --text3: #5a5a72;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --card: #13131e;
+  --bg: #0f172a;
+  --bg2: #111827;
+  --bg3: #172033;
+  --accent: #7a5af8;
+  --accent2: #38d5c8;
+  --text: #f8fafc;
+  --text2: #aab4c4;
+  --text3: #64748b;
+  --border: rgba(255,255,255,0.10);
+  --border2: rgba(255,255,255,0.18);
+  --card: rgba(15, 23, 42, 0.78);
+  --chip-bg: rgba(122, 90, 248, 0.12);
+  --chip-text: #cfc7ff;
+  --chip-border: rgba(122, 90, 248, 0.32);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(122, 90, 248, 0.18), transparent 28rem),
+    radial-gradient(circle at 90% 20%, rgba(56, 213, 200, 0.09), transparent 24rem),
+    linear-gradient(180deg, #0f172a 0%, #0b1020 48%, #0f172a 100%);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
 .font-mono-custom {
   font-family: 'Space Mono', monospace;
+}
+
+.hero-name {
+  color: var(--text);
+  text-shadow: 0 0 36px rgba(122, 90, 248, 0.25);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--chip-border);
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.project-card,
+.detail-panel {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.project-card {
+  position: relative;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  background: linear-gradient(90deg, transparent, rgba(122, 90, 248, 0.65), transparent);
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+.detail-panel {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  padding: 1.5rem;
 }

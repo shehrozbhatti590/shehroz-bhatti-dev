@@ -55,7 +55,7 @@ export default function ExperiencePage() {
   return (
     <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-[var(--accent)] tracking-[0.18em] mb-3">
-        // EXPERIENCE
+        {"// EXPERIENCE"}
       </p>
       <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
         Work Experience
@@ -93,7 +93,7 @@ export default function ExperiencePage() {
 
       {/* Skills */}
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-[var(--accent)] tracking-[0.18em] mb-3">
-        // SKILLS
+        {"// SKILLS"}
       </p>
       <h3 className="text-3xl font-semibold tracking-tight mb-10">Core Technical Skills</h3>
 

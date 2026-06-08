@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const services = [
   {
     icon: "⚡",
@@ -41,7 +43,7 @@ export default function ServicesPage() {
   return (
     <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-[var(--accent)] tracking-[0.18em] mb-3">
-        // SERVICES
+        {"// SERVICES"}
       </p>
       <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
         Frontend Development for Modern Web Products
@@ -82,18 +84,18 @@ export default function ServicesPage() {
           Let&apos;s discuss your requirements and build something impactful together.
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <a
+          <Link
             href="/contact"
             className="font-[family-name:var(--font-space-mono)] text-xs px-8 py-3.5 rounded bg-[var(--accent)] text-white hover:bg-[#9585ff] transition-colors tracking-wide"
           >
             Let&apos;s Work Together
-          </a>
-          <a
+          </Link>
+          <Link
             href="/projects"
             className="font-[family-name:var(--font-space-mono)] text-xs px-8 py-3.5 rounded border border-[var(--border2)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors tracking-wide"
           >
             View Projects
-          </a>
+          </Link>
         </div>
       </div>
     </section>

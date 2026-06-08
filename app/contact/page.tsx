@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-[var(--accent)] tracking-[0.18em] mb-3">
-        // CONTACT
+        {"// CONTACT"}
       </p>
       <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
         Get in Touch

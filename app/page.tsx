@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <section className="min-h-screen flex flex-col justify-center pt-28 pb-20 px-6 max-w-6xl mx-auto">
       <p className="font-[family-name:var(--font-space-mono)] text-sm text-[var(--accent2)] tracking-[0.15em] mb-5">
-        // Hi, I&apos;m
+        {"// Hi, I'm"}
       </p>
       <h1 className="text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight mb-4">
         Shehroz Saeed<br />
