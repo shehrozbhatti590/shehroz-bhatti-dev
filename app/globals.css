@@ -29,6 +29,7 @@ body {
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
+  animation: bg-breathe 12s ease-in-out infinite alternate;
 }
 
 body::before {
@@ -51,6 +52,7 @@ body::before {
 .hero-name {
   color: var(--text);
   text-shadow: 0 0 36px rgba(122, 90, 248, 0.25);
+  animation: title-glow 4.5s ease-in-out infinite alternate;
 }
 
 .chip {
@@ -65,6 +67,13 @@ body::before {
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.2;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 213, 200, 0.45);
+  background: rgba(56, 213, 200, 0.10);
 }
 
 .project-card,
@@ -75,6 +84,28 @@ body::before {
 
 .project-card {
   position: relative;
+  animation: rise-in 700ms cubic-bezier(.2,.8,.2,1) both;
+  animation-delay: var(--delay, 0ms);
+  transform-style: preserve-3d;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.10) 35%, transparent 55%),
+    radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(122, 90, 248, 0.18), transparent 16rem);
+  transform: translateX(-18%);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  animation: card-shine 950ms ease forwards;
 }
 
 .project-card::after {
@@ -98,4 +129,164 @@ body::before {
   border-radius: 1rem;
   background: var(--card);
   padding: 1.5rem;
+  animation: rise-in 680ms cubic-bezier(.2,.8,.2,1) both;
+  animation-delay: var(--delay, 0ms);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.detail-panel:hover {
+  transform: translateY(-3px);
+  border-color: rgba(122, 90, 248, 0.34);
+  box-shadow: 0 22px 60px rgba(2, 6, 23, 0.28);
+}
+
+.animate-page {
+  animation: page-in 650ms ease both;
+}
+
+.animate-kicker {
+  animation: fade-up 560ms ease both;
+}
+
+.animate-title {
+  animation: fade-up 620ms ease 80ms both;
+}
+
+.animate-copy {
+  animation: fade-up 680ms ease 150ms both;
+}
+
+.animate-actions {
+  animation: fade-up 720ms ease 240ms both;
+}
+
+.float-media {
+  animation: media-float 5.5s ease-in-out infinite;
+}
+
+.magnetic-button {
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.magnetic-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  background: linear-gradient(110deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: translateX(-100%);
+}
+
+.magnetic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(122, 90, 248, 0.22);
+}
+
+.magnetic-button:hover::after {
+  opacity: 1;
+  animation: button-shine 720ms ease forwards;
+}
+
+.feature-item {
+  animation: fade-up 560ms ease both;
+  animation-delay: var(--delay, 0ms);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 213, 200, 0.32);
+  background: rgba(56, 213, 200, 0.06);
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes card-shine {
+  from {
+    transform: translateX(-38%);
+  }
+  to {
+    transform: translateX(38%);
+  }
+}
+
+@keyframes button-shine {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes media-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes title-glow {
+  from {
+    text-shadow: 0 0 24px rgba(122, 90, 248, 0.18);
+  }
+  to {
+    text-shadow: 0 0 42px rgba(122, 90, 248, 0.34), 0 0 70px rgba(56, 213, 200, 0.08);
+  }
+}
+
+@keyframes bg-breathe {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 24px -16px, -18px 20px, 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
 }
